@@ -1,1 +1,42 @@
+public class BolaPong
+{
+ double comprimento = 500;
+ double altura = 300; 
+ double posição_inicialy = 150;
+ double posição_inicialx = 0;
+ double velocidadex = 20;
+ double velocidade_inicial_y = 10;
+ double posiçãox;
+ double posiçãoy;
+ double aceleração = 2;
+ 
+ public void posição(int tempo){
+     posiçãoy = posição_inicialy;
+     posiçãox = posição_inicialx;
+     posiçãox = posição_inicialx + velocidadex*tempo;
+     posiçãoy = posição_inicialy + velocidade_inicial_y*tempo + (aceleração*(tempo*tempo))/2;
+     
+ }
+ 
+ 
+ public void direção(){
+    if(posiçãoy >= 300){
+        posiçãoy = altura - (posiçãoy - altura);
+        posição_inicialy = posiçãoy;
+    } else if (posiçãoy <= 0){
+        posiçãoy= posiçãoy*(-1);
+    } if (posiçãox >500){
+        posiçãox = comprimento - (posiçãox - comprimento);
+        posição_inicialx = posiçãox;
+    } else if (posiçãox <= 0){
+       posiçãox = posiçãox*(-1);
+    }
+}
 
+public String atualização(){
+    return "x:"+posiçãox+"  "+"y:"+posiçãoy;
+}
+    
+    
+}
+//Programa feito no BlueJ em Java
